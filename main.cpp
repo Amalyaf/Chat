@@ -1,16 +1,17 @@
 #include <iostream>
-#include "Users.h"
+#include "Chat.h"
+
 using namespace std;
 
 int main()
 {
 	setlocale(LC_ALL, "");
-	Users u1(5);
-	for (int i = 0; i < u1.getMaxcount(); i++)
-	{
-		u1.setUser();
-	}
-	
-	cout << u1;
-
+	int count;
+	cout << "¬ведите кол-во пользователей:\n";
+	cin >> count;
+	Chat chat(count);
+	chat.registration();
+	chat.getChat();
+	chat.sendPrivateMessage();
+	chat.enter();
 }  

@@ -4,17 +4,17 @@
 class Users
 {
 private:
-	std::string* _login;
-	std::string* _password;
-	unsigned int count = 0;	// кол-во пользователей
-	unsigned int maxcount = 0;	//максимально возможное кол-во пользователей (передаётся через main)
+	std::string _login;
+	std::string _password;
+	std::string _name;
+	
 public:
-	Users(int n);
+	Users();
 	~Users();
 	void setUser();
-	std::string* getLogin();
-	std::string* getPassword();
+	std::string getLogin();
+	std::string getPassword();
+	std::string getName();
 	friend std::ostream& operator<<(std::ostream& output, const Users& user);
-	unsigned int getMaxcount();
 
 };

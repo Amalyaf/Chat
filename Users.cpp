@@ -1,58 +1,51 @@
 #include "Users.h"
 
-Users::Users(int n)
+Users::Users()
 {
-	maxcount = n;
-	_login = new std::string[n]{};
-	_password = new std::string[n]{};
+	_login = "-";
+	_password = "-";
+	_name = "-";
 }
+
+
 
 Users::~Users()
 {
-	delete[]_login;
-	delete[]_password;
+
 }
 
 void Users::setUser()
 {
-	if (count <= maxcount)
-	{
 		std::cout << "Введите логин: \n";
-		std::cin >> _login[count];
+		std::cin >> _login;
 		std::cout << "Введите пароль: \n";
-		std::cin >> _password[count];
-		count++;
-	}
-	else
-	{
-		std::cout << "Количество пользователей максимальное!\n";
-	}
+		std::cin >> _password;
+		std::cout << "Введите имя: \n";
+		std::cin >> _name;
 }
 
-std::string* Users::getLogin()
+std::string Users::getLogin()
 {
 	return _login;
 }
 
-std::string* Users::getPassword()
+std::string Users::getPassword()
 {
 	return _password;
 }
 
-unsigned int Users::getMaxcount()
+std::string Users::getName()
 {
-	return maxcount;
+	return _name;
 }
+
 
 
 std::ostream& operator<<(std::ostream& output, const Users& user)
 {
-	std::cout << "\n---------------------------------------------------------------\n";
-	for (int i = 0; i < user.count; i++)
-	{
-		output << "Логин: " << user._login[i] << '\n' <<
-			"Пароль: " << user._password[i] << '\n';
-	}
+		output << "Логин пользователя: " << user._login << '\n' <<
+			"Пароль: " << user._password << '\n' <<
+			"Имя: " << user._name << "\n\n";
 
 	
 	return output;
