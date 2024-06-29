@@ -2,8 +2,9 @@
 
 Users::Users(int n)
 {
-	_login = new std::string[n];
-	_password = new std::string[n];
+	maxcount = n;
+	_login = new std::string[n]{};
+	_password = new std::string[n]{};
 }
 
 Users::~Users()
@@ -14,9 +15,18 @@ Users::~Users()
 
 void Users::setUser()
 {
-	std::cout << "Введите логин: \n";
-	std::cin >> _login;
-	std::cout << "Введите пароль: \n";
+	if (count <= maxcount)
+	{
+		std::cout << "Введите логин: \n";
+		std::cin >> _login[count];
+		std::cout << "Введите пароль: \n";
+		std::cin >> _password[count];
+		count++;
+	}
+	else
+	{
+		std::cout << "Количество пользователей максимальное!\n";
+	}
 }
 
 std::string* Users::getLogin()
@@ -29,9 +39,21 @@ std::string* Users::getPassword()
 	return _password;
 }
 
+unsigned int Users::getMaxcount()
+{
+	return maxcount;
+}
+
+
 std::ostream& operator<<(std::ostream& output, const Users& user)
 {
-	output << "Логин: " << user._login << '\n' <<
-		"Пароль: " << user._password << '\n';
+	std::cout << "\n---------------------------------------------------------------\n";
+	for (int i = 0; i < user.count; i++)
+	{
+		output << "Логин: " << user._login[i] << '\n' <<
+			"Пароль: " << user._password[i] << '\n';
+	}
+
+	
 	return output;
 }
