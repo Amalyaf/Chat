@@ -11,8 +11,18 @@ int main()
 	cout << "¬ведите кол-во пользователей:\n";
 	cin >> count;
 	Chat chat(count);
-	chat.registration();
+	for (int i = 0; i < count; i++)
+	{
+		chat.registration();
+	}
+	
+	
 	chat.getChat();
+	char c = 'y';
+	while (c != 'n')
+	{
+
+	}
 	chat.sendPrivateMessage();
 	chat.enter();
 

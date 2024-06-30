@@ -9,6 +9,8 @@ Chat::Chat(int n)
 Chat::~Chat()
 {
 	delete[]_allUsers;
+	delete _privateMessage; // личные сообщения
+	delete _publicMessage;
 }
 
 void Chat::registration()
@@ -89,8 +91,13 @@ void Chat::enter()
 				c = 'n';
 				if (_login == _recipient)
 				{
-					std::cout << "У вас есть новое сообщение: ";
+					std::cout << "У вас есть новое личное сообщение: ";
 					_privateMessage->getMessage();
+				}
+				if (_recipient == "all")
+				{
+					std::cout << "У вас есть новое общее сообщение: ";
+					_publicMessage->getMessage();
 				}
 					
 			}
@@ -136,6 +143,7 @@ void Chat::sendPrivateMessage()
 void Chat::sendPublicMessage()
 {
 	_sender = _login;
+	_recipient = "all";
 	std::cout << "Введите групповое сообщение:\n";
 	_publicMessage = new Message;
 	_publicMessage->setMessage();
