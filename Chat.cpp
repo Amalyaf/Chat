@@ -88,6 +88,7 @@ void Chat::enter()
 			}
 			else
 			{
+				_status = true;
 				c = 'n';
 				if (_login == _recipient)
 				{
@@ -98,6 +99,7 @@ void Chat::enter()
 				{
 					std::cout << "У вас есть новое общее сообщение: ";
 					_publicMessage->getMessage();
+					std::cout << "\n";
 				}
 					
 			}
@@ -148,4 +150,9 @@ void Chat::sendPublicMessage()
 	_publicMessage = new Message;
 	_publicMessage->setMessage();
 
+}
+
+bool Chat::getstatus()
+{
+	return _status;
 }

@@ -14,6 +14,7 @@ private:
 	Message* _publicMessage; // общие сообщения
 	unsigned int _count = 0;	// кол-во пользователей
 	unsigned int _maxcount = 0;	//максимально возможное кол-во пользователей (передаётся через main)
+	bool _status = false; // если был выполнен вход стату = true, в противном случае - false.
 public:
 	Chat(int n);
 	~Chat();
@@ -22,4 +23,5 @@ public:
 	void registration();
 	void sendPrivateMessage();
 	void sendPublicMessage();
+	bool getstatus();
 };

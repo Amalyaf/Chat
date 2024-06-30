@@ -1,4 +1,5 @@
 #include "Message.h"
+#include <string>
 
 Message::Message()
 {
@@ -12,7 +13,8 @@ Message::~Message()
 
 void Message::setMessage()
 {
-	std::cin >> _message;
+	std::cin.get(); // убирает оставшийся в потоке символ перехода на новую строку
+	std::getline(std::cin, _message);
 }
 
 void Message::getMessage()
