@@ -118,12 +118,12 @@ void Chat::sendPrivateMessage()
 		}
 		if (i == _count)
 		{
-			std::cout << "Получаетль не найден!\nХотите повторить попытку?(y/n)";
+			std::cout << "Получатель не найден!\nХотите повторить попытку?(y/n)";
 			std::cin >> c;
 		}
 		else
 		{
-			std::cout << "ВВедите сообщение:\n";
+			std::cout << "Введите сообщение:\n";
 			_privateMessage = new Message;
 			_privateMessage->setMessage();
 			c = 'n';
@@ -131,4 +131,13 @@ void Chat::sendPrivateMessage()
 	}
 	
 	
+}
+
+void Chat::sendPublicMessage()
+{
+	_sender = _login;
+	std::cout << "Введите групповое сообщение:\n";
+	_publicMessage = new Message;
+	_publicMessage->setMessage();
+
 }

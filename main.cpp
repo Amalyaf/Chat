@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Chat.h"
 
+
 using namespace std;
 
 int main()
@@ -14,4 +15,5 @@ int main()
 	chat.getChat();
 	chat.sendPrivateMessage();
 	chat.enter();
+
 }  
