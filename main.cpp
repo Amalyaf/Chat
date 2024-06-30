@@ -15,15 +15,36 @@ int main()
 	{
 		chat.registration();
 	}
-	
-	
 	chat.getChat();
+	chat.enter();
+	
+	
 	char c = 'y';
 	while (c != 'n')
 	{
+		char message;
+		cout << "Хотите отправить сообщение?(y/n)\n";
+		cin >> c;
 
+		if (c == 'y')
+		{
+			cout << "Выберите тип отправляемого сообщения: 1-private, 2-public\n";
+			cin >> message;
+			switch (message)
+			{
+			case '1':
+				chat.sendPrivateMessage();
+				break;
+			case '2':
+				chat.sendPublicMessage();
+				break;
+			default:
+				cout << "Некорректный ввод!";
+				break;
+			}
+		}
 	}
-	chat.sendPrivateMessage();
+	
 	chat.enter();
 
 }  
