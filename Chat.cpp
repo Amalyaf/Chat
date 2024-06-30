@@ -94,6 +94,7 @@ void Chat::enter()
 				{
 					std::cout << "У вас есть новое личное сообщение: ";
 					_privateMessage->getMessage();
+					std::cout << "\n";
 				}
 				if (_recipient == "all")
 				{
