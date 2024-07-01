@@ -92,21 +92,19 @@ void Chat::enter()
 				c = 'n';
 				if (_login == _recipient)
 				{
-					std::cout << "У вас есть новое личное сообщение: ";
+					std::cout << "У вас есть новое личное сообщение от " << _sender << ": ";
 					_privateMessage->getMessage();
 					std::cout << "\n";
 				}
 				if (_recipient == "all")
 				{
-					std::cout << "У вас есть новое общее сообщение: ";
+					std::cout << "У вас есть новое общее сообщение от " << _sender << ": ";
 					_publicMessage->getMessage();
 					std::cout << "\n";
 				}
-					
 			}
 		}
 	}
-	
 }
 
 
@@ -139,8 +137,6 @@ void Chat::sendPrivateMessage()
 			c = 'n';
 		}
 	}
-	
-	
 }
 
 void Chat::sendPublicMessage()
@@ -150,10 +146,16 @@ void Chat::sendPublicMessage()
 	std::cout << "Введите групповое сообщение:\n";
 	_publicMessage = new Message;
 	_publicMessage->setMessage();
-
 }
 
 bool Chat::getstatus()
 {
 	return _status;
+}
+
+void Chat::exit()
+{
+	_status = false;
+	_login.clear();
+	_password.clear();
 }

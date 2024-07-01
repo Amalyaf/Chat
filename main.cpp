@@ -16,15 +16,12 @@ int main()
 		chat.registration();
 	}
 	chat.getChat();
-	
-	
-	
-	
+
 	chat.enter();
-	if (chat.getstatus()) // провер€ем был ли выполнен вход
+	char c = 'y';
+	while (c != 'n')
 	{
-		char c = 'y';
-		while (c != 'n')
+		if (chat.getstatus()) // провер€ем был ли выполнен вход
 		{
 			char message;
 			cout << "’отите отправить сообщение?(y/n)\n";
@@ -53,14 +50,21 @@ int main()
 				cin >> c;
 				if (c == 'y')
 				{
+					chat.exit();
 					chat.enter();
+				}
+				else
+				{
+					break;
 				}
 			}
 		}
+		else
+		{ 
+			c = 'n';
+			cout << "¬ход не выполнен!\n";
+		}
 
 	}
-	else
-	{
-		cout << "¬ход не выполнен!\n";
-	}
+
 }  

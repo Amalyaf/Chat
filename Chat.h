@@ -24,4 +24,5 @@ public:
 	void sendPrivateMessage();
 	void sendPublicMessage();
 	bool getstatus();
+	void exit();
 };
