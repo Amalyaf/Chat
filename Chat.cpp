@@ -41,7 +41,6 @@ void Chat::registration()
 				c = 'n';
 			}
 		}
-		
 	}
 	else
 	{

@@ -5,11 +5,11 @@
 class Message
 {
 private:
-	std::string _message;
+	std::string _message; // сообщение
 	
 public:
-	Message();
-	~Message();
-	void setMessage();
-	void getMessage();
+	Message(); // конструткор
+	~Message(); // деструктор
+	void setMessage(); //  ввод сообщения
+	void getMessage(); // вывод сообщения
 };
