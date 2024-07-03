@@ -1,37 +1,52 @@
 #include "Users.h"
 
-Users::Users(int n)
+Users::Users()
 {
-	_login = new std::string[n];
-	_password = new std::string[n];
+	_login = "-";
+	_password = "-";
+	_name = "-";
 }
+
+
 
 Users::~Users()
 {
-	delete[]_login;
-	delete[]_password;
+
 }
 
 void Users::setUser()
 {
-	std::cout << "¬ведите логин: \n";
-	std::cin >> _login;
-	std::cout << "¬ведите пароль: \n";
+		std::cout << "¬ведите логин: \n";
+		std::cin >> _login;
+		std::cout << "¬ведите пароль: \n";
+		std::cin >> _password;
+		std::cout << "¬ведите им€: \n";
+		std::cin >> _name;
 }
 
-std::string* Users::getLogin()
+std::string Users::getLogin()
 {
 	return _login;
 }
 
-std::string* Users::getPassword()
+std::string Users::getPassword()
 {
 	return _password;
 }
 
+std::string Users::getName()
+{
+	return _name;
+}
+
+
+
 std::ostream& operator<<(std::ostream& output, const Users& user)
 {
-	output << "Ћогин: " << user._login << '\n' <<
-		"ѕароль: " << user._password << '\n';
+		output << "Ћогин пользовател€: " << user._login << '\n' <<
+			"ѕароль: " << user._password << '\n' <<
+			"»м€: " << user._name << "\n\n";
+
+	
 	return output;
 }

@@ -4,13 +4,17 @@
 class Users
 {
 private:
-	std::string* _login;
-	std::string* _password;
+	std::string _login; // логин
+	std::string _password; // пароль
+	std::string _name; // имя
+	
 public:
-	Users(int n);
-	~Users();
-	void setUser();
-	std::string* getLogin();
-	std::string* getPassword();
-	friend std::ostream& operator<<(std::ostream& output, const Users& user);
+	Users(); // конструктор
+	~Users(); // деструктор
+	void setUser(); // метод запрашивает данные пользователя
+	std::string getLogin(); // метод возвращает логин пользователя
+	std::string getPassword(); // метод возвращает пароль пользователя
+	std::string getName(); // метод возвращает имя пользователя
+	friend std::ostream& operator<<(std::ostream& output, const Users& user); // перегрузка оператора вывода
+
 };
