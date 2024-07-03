@@ -1,4 +1,5 @@
 #include "Chat.h"
+#include "bad_login.h"
 
 Chat::Chat(int n)
 {
@@ -62,47 +63,57 @@ void Chat::enter()
 	int i;
 	while (c != 'n')
 	{
-		std::cout << "Для входа введите логин: \n";
-		std::cin >> _login;
-		for (i = 0; i < _maxcount; i++)
+		try 
 		{
-			if (_login == _allUsers[i].getLogin())
+			std::cout << "Для входа введите логин: \n";
+			std::cin >> _login;
+			for (i = 0; i < _maxcount; i++)
 			{
-				break;
+				if (_login == _allUsers[i].getLogin())
+				{
+					break;
+				}
 			}
-		}
-		if (i == _maxcount)
-		{
-			std::cout << "Пользователь не найден!\nХотите повторить ввод?(y/n): ";
-			std::cin >> c;
-		}
-		else
-		{
-			std::cout << "Введите пароль: \n";
-			std::cin >> _password;
 
-			if (_password != _allUsers[i].getPassword())
+			if (i == _maxcount)
 			{
-				std::cout << "Неправильный пароль!\nХотите повторить ввод?(y/n): ";
-				std::cin >> c;
+				throw BadLogin();
 			}
+
 			else
 			{
-				_status = true;
-				c = 'n';
-				if (_login == _recipient)
+				std::cout << "Введите пароль: \n";
+				std::cin >> _password;
+
+				if (_password != _allUsers[i].getPassword())
 				{
-					std::cout << "У вас есть новое личное сообщение от " << _sender << ": ";
-					_privateMessage->getMessage();
-					std::cout << "\n";
+					std::cout << "Неправильный пароль!\nХотите повторить ввод?(y/n): ";
+					std::cin >> c;
 				}
-				if (_recipient == "all")
+				else
 				{
-					std::cout << "У вас есть новое общее сообщение от " << _sender << ": ";
-					_publicMessage->getMessage();
-					std::cout << "\n";
+					_status = true;
+					c = 'n';
+					if (_login == _recipient)
+					{
+						std::cout << "У вас есть новое личное сообщение от " << _sender << ": ";
+						_privateMessage->getMessage();
+						std::cout << "\n";
+					}
+					if (_recipient == "all")
+					{
+						std::cout << "У вас есть новое общее сообщение от " << _sender << ": ";
+						_publicMessage->getMessage();
+						std::cout << "\n";
+					}
 				}
 			}
+
+		}
+		catch (BadLogin& e)
+		{
+			std::cout << e.what() << std::endl;
+			std::cin >> c;
 		}
 	}
 }
