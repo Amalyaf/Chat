@@ -1,5 +1,6 @@
 #include "Chat.h"
 #include "bad_login.h"
+#include "bad_password.h"
 
 Chat::Chat(int n)
 {
@@ -87,8 +88,7 @@ void Chat::enter()
 
 				if (_password != _allUsers[i].getPassword())
 				{
-					std::cout << "Неправильный пароль!\nХотите повторить ввод?(y/n): ";
-					std::cin >> c;
+					throw BadPassword();
 				}
 				else
 				{
@@ -111,6 +111,11 @@ void Chat::enter()
 
 		}
 		catch (BadLogin& e)
+		{
+			std::cout << e.what() << std::endl;
+			std::cin >> c;
+		}
+		catch (BadPassword& e)
 		{
 			std::cout << e.what() << std::endl;
 			std::cin >> c;
