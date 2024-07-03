@@ -1,15 +1,29 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Users.h"
 
-class Message
+template <typename T> class Message
 {
 private:
-	std::string _message; // сообщение
+	T _message; // сообщение
 	
 public:
-	Message(); // конструткор
-	~Message(); // деструктор
-	void setMessage(); //  ввод сообщения
-	void getMessage(); // вывод сообщения
+	Message() // конструткор
+	{
+		_message = "-";
+	}
+	~Message() // деструктор
+	{
+
+	}
+	void setMessage() //  ввод сообщения
+	{
+		std::cin.get(); // убирает оставшийся в потоке символ перехода на новую строку
+		std::getline(std::cin, _message);
+	}
+	void getMessage() // вывод сообщения
+	{
+		std::cout << _message;
+	}
 };

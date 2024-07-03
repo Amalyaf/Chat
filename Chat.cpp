@@ -147,7 +147,7 @@ void Chat::sendPrivateMessage()
 		else
 		{
 			std::cout << "¬ведите сообщение:\n";
-			_privateMessage = new Message;
+			_privateMessage = new Message<std::string>;
 			_privateMessage->setMessage();
 			c = 'n';
 		}
@@ -159,7 +159,7 @@ void Chat::sendPublicMessage()
 	_sender = _login;
 	_recipient = "all";
 	std::cout << "¬ведите групповое сообщение:\n";
-	_publicMessage = new Message;
+	_publicMessage = new Message<std::string>;
 	_publicMessage->setMessage();
 }
 
