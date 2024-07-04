@@ -7,8 +7,6 @@ Users::Users()
 	_name = "-";
 }
 
-
-
 Users::~Users()
 {
 
@@ -16,12 +14,12 @@ Users::~Users()
 
 void Users::setUser()
 {
-		std::cout << "¬ведите логин: \n";
-		std::cin >> _login;
-		std::cout << "¬ведите пароль: \n";
-		std::cin >> _password;
-		std::cout << "¬ведите им€: \n";
-		std::cin >> _name;
+	std::cout << "¬ведите логин: \n";
+	std::cin >> _login;
+	std::cout << "¬ведите пароль: \n";
+	std::cin >> _password;
+	std::cout << "¬ведите им€: \n";
+	std::cin >> _name;
 }
 
 std::string Users::getLogin()
@@ -40,13 +38,10 @@ std::string Users::getName()
 }
 
 
-
 std::ostream& operator<<(std::ostream& output, const Users& user)
 {
-		output << "Ћогин пользовател€: " << user._login << '\n' <<
+	output << "Ћогин пользовател€: " << user._login << '\n' <<
 			"ѕароль: " << user._password << '\n' <<
 			"»м€: " << user._name << "\n\n";
-
-	
 	return output;
 }

@@ -11,8 +11,8 @@ Chat::Chat(int n)
 Chat::~Chat()
 {
 	delete[]_allUsers;
-	delete _privateMessage; // личные сообщения
-	delete _publicMessage;
+	delete _privateMessage; 
+	delete _publicMessage; 
 }
 
 void Chat::registration()
@@ -23,7 +23,7 @@ void Chat::registration()
 	{
 		while (c != 'n')
 		{
-			std::cout << "Регистрация нового пользователя\n";
+			std::cout << "\nРегистрация нового пользователя\n";
 			_allUsers[_count].setUser();
 			for (i = 0; i < _count; i++)
 			{
@@ -65,7 +65,7 @@ void Chat::enter()
 	{
 		try 
 		{
-			std::cout << "Для входа введите логин: \n";
+			std::cout << "\nДля входа введите логин: \n";
 			std::cin >> _login;
 			for (i = 0; i < _maxcount; i++)
 			{
@@ -95,15 +95,17 @@ void Chat::enter()
 					c = 'n';
 					if (_login == _recipient)
 					{
+						std::cout << "\n------------------------------------------------------\n";
 						std::cout << "У вас есть новое личное сообщение от " << _sender << ": ";
 						_privateMessage->getMessage();
-						std::cout << "\n";
+						std::cout << "\n------------------------------------------------------\n";
 					}
 					if (_recipient == "all")
 					{
+						std::cout << "\n------------------------------------------------------\n";
 						std::cout << "У вас есть новое общее сообщение от " << _sender << ": ";
 						_publicMessage->getMessage();
-						std::cout << "\n";
+						std::cout << "\n------------------------------------------------------\n";
 					}
 				}
 			}

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Message.h"
+#include "Users.h"
 
 class Chat
 {
