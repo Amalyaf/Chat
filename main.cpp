@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Chat.h"
 
-
 using namespace std;
 
 int main()
@@ -11,20 +10,24 @@ int main()
 	cout << "Введите кол-во пользователей:\n";
 	cin >> count;
 	Chat chat(count);
-	for (int i = 0; i < count; i++)
+
+	for (int i = 0; i < count; i++) // регистрация пользователей
 	{
 		chat.registration();
 	}
-	chat.getChat();
 
-	chat.enter();
-	char c = 'y';
+	std::cout << "\n";
+	chat.getChat(); // вывод данных пользователей на экран
+
+	chat.enter(); // авторизация
+	char c = 'y'; // условие выхода из цикла
+
 	while (c != 'n')
 	{
 		if (chat.getstatus()) // проверяем был ли выполнен вход
 		{
 			char message;
-			cout << "Хотите отправить сообщение?(y/n)\n";
+			cout << "\nХотите отправить сообщение?(y/n)\n";
 			cin >> c;
 
 			if (c == 'y')
@@ -46,7 +49,7 @@ int main()
 			}
 			if (c == 'n')
 			{
-				cout << "Хотите выполнить вход под другой учетной записью?(y/n)\n";
+				cout << "\nХотите выполнить вход под другой учетной записью?(y/n)\n";
 				cin >> c;
 				if (c == 'y')
 				{
@@ -64,7 +67,5 @@ int main()
 			c = 'n';
 			cout << "Вход не выполнен!\n";
 		}
-
 	}
-
 }  
